@@ -16,8 +16,9 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${FullOutputDir}")
 add_executable(shit_runner ${source_files})
 
 find_package(OpenGL REQUIRED)
+find_package(GLEW REQUIRED)
 
-target_link_libraries(shit_runner PRIVATE OpenGL::GL glfw)
+target_link_libraries(shit_runner PRIVATE OpenGL::GL glfw GLEW::GLEW)
 
 if(${CMAKE_SYSTEM_NAME} STREQUAL "Darwin") # macOS
     message(STATUS "Configuring for macOS")
